@@ -1,37 +1,42 @@
+# ✨ ConsultHype: Gestão de Talentos de Consultoria (Angular 17+)
 
-# 🚀 ConsultHub: Sistema de Gestão de Consultores
+> Uma aplicação web moderna para alocação de especialistas, construída com foco em **reatividade de estado** e **design premium** (Dark Mode).
 
-![Angular](https://img.shields.io/badge/Angular-17+-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.3-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+-----
 
-Aplicação web desenvolvida com **Angular 17+**, utilizando **Componentes Standalone** e **Tailwind CSS**.  
-O objetivo é simplificar a **gestão e listagem de consultores**, mantendo **organização do código**, **reatividade com Signals** e **design responsivo**.  
+## 🌟 Principais Recursos e Destaques
 
----
+  * **Design Sofisticado:** Interface **Dark Mode Premium** totalmente implementada com Tailwind CSS, garantindo uma experiência de usuário elegante e profissional.
+  * **Gestão Reativa:** Utilização completa dos **Signals** (`signal()`, `computed()`) do Angular para um gerenciamento de estado eficiente, garantindo que a lista e os filtros sejam atualizados instantaneamente.
+  * **Controle de Acesso:** Implementação de rotas protegidas e restrição de funcionalidades (adição/edição/remoção) baseadas no **Perfil do Usuário** (`Admin` vs. `Comum`).
+  * **Filtro Inteligente:** Recurso de filtragem por especialização, utilizando `computed` Signals para alta performance na busca de consultores.
 
-## 🛠️ Tecnologias Utilizadas
+-----
 
-- **Framework:** Angular (v17+)  
-- **Estilização:** Tailwind CSS  
-- **Gerenciamento de Estado:** Signals (`signal()` e `computed()`)  
-- **Rotas:** @angular/router  
-- **Formulários:** Reactive Forms  
+## 🛠️ Stack Tecnológica
 
----
+| Categoria | Tecnologia | Detalhes |
+| :--- | :--- | :--- |
+| **Framework** | **Angular v17+** | Componentes Standalone (sem NgModules) |
+| **Estilização** | **Tailwind CSS** | Desenvolvimento rápido e design utilitário |
+| **Estado** | **Angular Signals** | Otimização da reatividade e *change detection* |
+| **Formulários** | **Reactive Forms** | Validação robusta para Login e Cadastro |
+| **Navegação** | `@angular/router` | Roteamento modularizado |
 
-## 💻 Estrutura e Execução
+-----
+
+## 💻 Como Executar o Projeto
+
+Este projeto é um aplicativo Angular padrão.
 
 ### 🔹 Pré-requisitos
-Certifique-se de ter **Node.js** e **Angular CLI** instalados globalmente:
+
+Certifique-se de ter **Node.js** (LTS recomendado) e **Angular CLI** instalados globalmente.
 
 ```bash
-# Verificar versão do Node.js
-node -v
-
 # Instalar Angular CLI (se necessário)
 npm install -g @angular/cli
-````
+```
 
 ### 🔹 1. Instalação de Dependências
 
@@ -40,61 +45,42 @@ npm install -g @angular/cli
 npm install
 ```
 
-### 🔹 2. Execução do Projeto
+### 🔹 2. Execução
 
 ```bash
-# Inicia o servidor de desenvolvimento
-ng serve
+# Inicia o servidor de desenvolvimento com hot-reload
+ng serve -o
 ```
 
-O projeto estará acessível em: [http://localhost:4200](http://localhost:4200) 🌐
+O projeto será aberto automaticamente no seu navegador em: [http://localhost:4200](https://www.google.com/search?q=http://localhost:4200) 🌐
 
----
+-----
 
 ## 🔑 Credenciais de Acesso (Mock)
 
-| Papel         | E-mail                                        | Senha    | Acesso                                      |
-| ------------- | --------------------------------------------- | -------- | ------------------------------------------- |
-| Administrador | [admin@empresa.com](mailto:admin@empresa.com) | admin123 | Criação, Edição e Exclusão de Consultores   |
-| Usuário Comum | [user@empresa.com](mailto:user@empresa.com)   | user123  | Apenas Visualização e Filtro de Consultores |
+Utilize as seguintes credenciais para testar as diferentes permissões do sistema.
 
----
+| Papel | E-mail | Senha | Funcionalidades |
+| :--- | :--- | :--- | :--- |
+| **Administrador** | `admin@empresa.com` | `admin123` | **CRUD** (Criação, Edição e Exclusão) de Consultores |
+| **Usuário Comum** | `user@empresa.com` | `user123` | Apenas **Visualização** e Filtro de Consultores |
 
-## 🗺️ Rotas da Aplicação
+-----
 
-| Rota                  | Componente               | Descrição                              |
-| --------------------- | ------------------------ | -------------------------------------- |
-| /login                | LoginComponent           | Tela inicial de acesso                 |
-| /consultants          | ConsultantsPageComponent | Listagem e filtro de consultores       |
-| /consultants/new      | ConsultantFormComponent  | Cadastro de novo consultor (Admin)     |
-| /consultants/edit/:id | ConsultantFormComponent  | Edição de consultor existente (Admin)  |
-| /about                | AboutComponent           | Informações sobre a empresa ConsultHub |
-| /**                   | (Redirecionamento)       | Qualquer rota inválida é redirecionada |
+## 🗺️ Visão Geral das Rotas
 
----
+| Rota | Componente | Permissão | Descrição |
+| :--- | :--- | :--- | :--- |
+| `/login` | `LoginComponent` | Pública | Tela de autenticação (Design Dark Mode) |
+| `/consultants` | `ConsultantsPageComponent` | Autenticado | Listagem, filtro e visualização da equipe |
+| `/consultants/new` | `ConsultantFormComponent` | **Admin** | Cadastro de um novo consultor |
+| `/consultants/edit/:id` | `ConsultantFormComponent` | **Admin** | Edição de um consultor existente |
+| `/about` | `AboutComponent` | Autenticado | Informações sobre a empresa ConsultHype |
 
-## 📄 Componentes Organizados
+-----
 
-Os principais componentes estão organizados em arquivos separados (`.ts`, `.html`, `.css`) seguindo boas práticas:
+## 🧑‍💻 Desenvolvedor
 
-* AboutComponent
-* ConsultantCardComponent
-* ConsultantFormComponent
-* ConsultantFilterComponent
-* ConsultantsPageComponent
-* HeaderComponent
-* LoginComponent
+Este projeto foi desenvolvido por:
 
----
-
-## 🔗 Links Úteis
-
-* [Documentação Angular](https://angular.io/docs)
-* [Tailwind CSS](https://tailwindcss.com/docs)
-* [Exemplo de Deploy no GitHub Pages](https://pages.github.com/)
-
----
-
-✨ Obrigado por conferir este projeto!
-Se gostou, não esqueça de deixar uma ⭐ no repositório! 🚀
-
+### **Gabriel Barreto**
