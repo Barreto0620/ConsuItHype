@@ -1,0 +1,43 @@
+<div class="bg-gray-900 min-h-screen p-6 sm:p-10 lg:p-12">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl p-8 sm:p-10">
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-6">
+        <div>
+          <h1 class="text-4xl font-extrabold text-white mb-2 border-l-4 border-amber-400 pl-3">
+            Consultores da ConsultHype
+          </h1>
+          <p class="text-gray-400 mt-2">
+            Conheça nossa equipe de especialistas e encontre o profissional ideal para seu projeto.
+          </p>
+        </div>
+        
+        @if (isAdmin()) {
+          <a 
+            routerLink="/consultants/new"
+            class="bg-amber-500 text-gray-900 px-6 py-3 rounded-xl font-bold uppercase tracking-wider hover:bg-amber-400 transition duration-300 shadow-lg shadow-amber-500/30 whitespace-nowrap"
+          >
+            + Novo Consultor
+          </a>
+        }
+      </div>
+
+      <div class="mb-8">
+        <app-consultant-filter
+          [specializations]="specializations()"
+          [selectedFilter]="selectedFilter()"
+          (filterChange)="onFilterChange($event)">
+        </app-consultant-filter>
+      </div>
+
+      <app-consultant-list
+        [consultants]="filteredConsultants()"
+        [isAdmin]="isAdmin()"
+        (edit)="onEdit($event)"
+        (delete)="onDelete($event)">
+      </app-consultant-list>
+      
+    </div>
+  </div>
+</div>

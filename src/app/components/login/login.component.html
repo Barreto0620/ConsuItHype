@@ -1,0 +1,83 @@
+<div class="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+  <div class="bg-gray-800/80 backdrop-blur-lg border border-amber-500/10 rounded-3xl shadow-2xl shadow-gray-900/80 p-6 w-full max-w-sm sm:max-w-md">
+    
+    <div class="text-center mb-8">
+      <div class="h-1 w-16 bg-amber-500 mx-auto mb-4 rounded-full"></div>
+      <h1 class="text-3xl font-extrabold text-white mb-1">Acesso Restrito</h1>
+      <p class="text-gray-400 font-medium text-base">Faça login para continuar</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+          E-mail
+        </label>
+        <div class="relative">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m4-4V4m0 16v-4m-4-8a4 4 0 100 8m0 0a4 4 0 108 0M16 12a4 4 0 100-8m0 8a4 4 0 10-8 0"></path></svg>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            class="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition duration-200 placeholder-gray-500"
+            placeholder="seu@email.com"
+          />
+        </div>
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <p class="text-red-400 text-sm mt-1">E-mail inválido</p>
+        }
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-300 mb-2">
+          Senha
+        </label>
+        <div class="relative">
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15a2 2 0 100-4 2 2 0 000 4z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            class="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition duration-200 placeholder-gray-500"
+            placeholder="••••••••"
+          />
+        </div>
+        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+          <p class="text-red-400 text-sm mt-1">Senha é obrigatória</p>
+        }
+      </div>
+
+      @if (errorMessage()) {
+        <div class="bg-red-900/50 border border-red-700 text-red-400 px-4 py-3 rounded-xl font-medium">
+          {{ errorMessage() }}
+        </div>
+      }
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="w-full bg-amber-500 text-gray-900 py-3 rounded-xl font-extrabold uppercase tracking-wider shadow-lg shadow-amber-500/30 hover:bg-amber-400 disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed transition duration-200"
+      >
+        Acessar Plataforma
+      </button>
+    </form>
+
+    <div class="mt-8 pt-6 border-t border-gray-700">
+      <p class="text-sm text-gray-500 text-center mb-4">Credenciais de teste:</p>
+      <div class="space-y-3 text-sm">
+        <div class="bg-gray-700 p-3 rounded-xl border border-gray-600">
+          <p class="font-semibold text-white flex justify-between">
+            Administrador: <span class="text-amber-400 font-bold">admin@empresa.com</span>
+          </p>
+          <p class="text-gray-400 mt-1">Senha: admin123</p>
+        </div>
+        <div class="bg-gray-700 p-3 rounded-xl border border-gray-600">
+          <p class="font-semibold text-white flex justify-between">
+            Usuário Comum: <span class="text-green-400 font-bold">user@empresa.com</span>
+          </p>
+          <p class="text-gray-400 mt-1">Senha: user123</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

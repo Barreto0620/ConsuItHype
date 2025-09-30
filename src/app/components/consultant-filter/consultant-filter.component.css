@@ -1,0 +1,28 @@
+/* Estilos específicos para o componente de filtro */
+:host {
+  display: block;
+}
+
+/* Remover aparência padrão do select */
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+select:hover {
+  border-color: #6b7280;
+}
+
+/* Estilização customizada para o dropdown */
+.filter-container {
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .filter-container {
+    width: 100%;
+  }
+}
